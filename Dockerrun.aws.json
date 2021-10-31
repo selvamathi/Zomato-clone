@@ -1,0 +1,28 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "nginx",
+      "image": "selvamathi13/zomato-clone-nginx",
+      "hostname": "nginx",
+      "essentials": true,
+       "postMappings": [{ "hostPort": 80, "containerPort": 80 }],
+      "links": ["client", "nodeserver"],
+      "memory": 128
+    },
+    {
+      "name": "client",
+      "image": "selvamathi13/zomato-clone-client",
+      "hostname": "client",
+      "essentials": false,
+      "memory": 300
+    },
+    {
+      "name": "nodeserver",
+      "image": "selvamathi13/zomato-clone-server",
+      "hostname": "nodeserver",
+      "essentials": false,
+      "memory": 300
+    }
+  ]
+}
